@@ -1,0 +1,79 @@
+{
+    "name": "Python 3",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "hostRequirements": {
+        "cpus": 4
+    },
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "postAttachCommand": ". .venv/bin/activate",
+    "remoteEnv": {
+        "VIRTUAL_ENV_DISABLE_PROMPT": "1"
+    },
+    "waitFor": "onCreateCommand",
+    "features": {
+        // "ghcr.io/devcontainers/features/azure-cli:1": {
+        //     "version": "latest"
+        // },
+        //"node": "lts",
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true
+            //"upgradePackages": true,
+            // "username": "vscode",
+            // "uid": "1000",
+            // "gid": "1000"
+        },
+         "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers-extra/features/zsh-plugins:0": {
+            "plugins": "zsh-autosuggestions zsh-syntax-highlighting",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions.git https://github.com/zsh-users/zsh-syntax-highlighting.git"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.copilot",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "editorconfig.editorconfig",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.vscode-jupyter-slideshow",
+                "mads-hartmann.bash-ide-vscode",
+                "ms-toolsai.datawrangler",
+                "mhutchie.git-graph",
+                "robertz.code-snapshot"
+            ],
+            "settings": {
+                "python.formatting.provider": "black",
+                "files.eol": "\n",
+                "editor.formatOnSave": true,
+                "editor.tabSize": 4,
+                "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+                "terminal.integrated.fontLigatures.enabled": true,
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "python.terminal.activateEnvInCurrentTerminal": true,
+                "python.defaultInterpreterPath": ".venv/bin/python",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/bin/zsh",
+                        "icon": "terminal-ubuntu"
+                    }
+                },
+                "postCreateCommand": [
+                    "pip3 --disable-pip-version-check --no-cache-dir install -r requirements.txt"
+                ]
+            }
+        }
+    }
+}

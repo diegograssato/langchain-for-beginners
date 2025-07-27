@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+        "editorconfig.editorconfig",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.vscode-jupyter-cell-tags",
+        "ms-toolsai.vscode-jupyter-slideshow",
+        "mads-hartmann.bash-ide-vscode",
+        "ms-toolsai.datawrangler"
+  ]
+}
+/* vim: set filetype=javascript ts=4 sw=4 expandtab : */
