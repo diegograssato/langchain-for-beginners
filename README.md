@@ -1,6 +1,6 @@
-# Curso LangChain - Iniciantes
+# Curso LangChain for Beginners
 
-Bem-vindo ao repositório do Curso LangChain fo Beginner! Aqui você encontrará todos os exemplos de código necessários para acompanhar o curso e aprender sobre LangChain do zero. Ao final do curso, você será capaz de criar seus próprios aplicativos com LLM integrado, construir chatbots RAG e automatizar tarefas com IA.
+Bem-vindo ao repositório do Curso LangChain for Beginners! Aqui você encontrará todos os exemplos de código necessários para acompanhar o curso e aprender sobre LangChain do zero. Ao final do curso, você será capaz de criar seus próprios aplicativos com LLM integrado, construir chatbots RAG e automatizar tarefas com IA.
 
 
 ### Pré-requisitos
