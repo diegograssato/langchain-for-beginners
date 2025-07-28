@@ -90,21 +90,11 @@ def initialize_llm(agent_type: str = "azure") -> BaseChatOpenAI:
             """
             llm = AzureChatOpenAI(model=os.environ['AZURE_OPENAI_DEPLOYMENT_MODEL'], temperature=0.1)
 
-            openia = AzureOpenAI(model=os.environ['AZURE_OPENAI_DEPLOYMENT_MODEL'], temperature=0.1)
+            openia = OpenAI(model=os.environ['AZURE_OPENAI_DEPLOYMENT_MODEL'], temperature=0.1)
 
             embeddings = AzureOpenAIEmbeddings(
                 model=os.environ['AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT_MODEL'],
                 azure_deployment=os.environ['AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT_NAME']
             )
-
-        case "openai":
-            logger.info("Using OpenAI.")
-            llm = ChatOpenAI(model=os.environ['AZURE_OPENAI_DEPLOYMENT_MODEL'], temperature=0.1)
-
-            openia = OpenAI(model=os.environ['AZURE_OPENAI_DEPLOYMENT_MODEL'], temperature=0.1)
-
-            embeddings = OpenAIEmbeddings( model="text-embedding-3-large")
-
-
 
     return llm, openia, embeddings
