@@ -38,38 +38,10 @@ st.markdown("Faça uma pergunta sobre o conteúdo do PDF do Booking.com.")
 
 pergunta = st.text_input("Digite sua pergunta:")
 # Botão para enviar a pergunta
-# if st.button("Responder") and pergunta:
-#     with st.spinner("🔍Consultando termos..."):
-#         retonar_simple_chain(pergunta)
-
-#     # with st.spinner("Consultando documentos..."):
-#     #     retonar_retrival_response(pergunta)
-
-sessao = st.session_state.get("sessao", "usuario_1")
-if "historico" not in st.session_state:
-    st.session_state["historico"] = []
-
 if st.button("Responder") and pergunta:
+    # with st.spinner("🔍Consultando termos..."):
+    #     retonar_simple_chain(pergunta)
+
     with st.spinner("Consultando documentos..."):
-        resultado = agent.retrival_response_with_historical(pergunta, sessao)
+        retonar_retrival_response(pergunta)
 
-        resposta = resultado["result"]
-        fontes = resultado.get("source_documents", [])
-
-        # Mostrar resposta
-        st.success("Resposta:")
-        st.write(resposta)
-
-        # Histórico visual
-        st.session_state["historico"].append((pergunta, resposta))
-
-        with st.expander("📚 Fontes utilizadas na ultima pesquisa"):
-            for i, doc in enumerate(fontes):
-                st.markdown(f"**Fonte {i+1}:**")
-                st.write(doc.page_content[:500] + "...")
-
-    if st.session_state["historico"]:
-        with st.expander("💬 Histórico da Sessão"):
-            for i, (q, r) in enumerate(reversed(st.session_state["historico"]), 1):
-                st.markdown(f"**{i}. Pergunta:** {q}")
-                st.markdown(f"**Resposta:** {r}")

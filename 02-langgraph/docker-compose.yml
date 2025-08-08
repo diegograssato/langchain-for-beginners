@@ -1,0 +1,8 @@
+  # Example docker-compose.yml snippet
+    services:
+      langflow:
+        image: langflowai/langflow:latest
+        volumes:
+          - ./flows:/app/flows # Mounts the local 'flows' directory to the container's '/app/flows'
+        ports:
+        - "7860:7860"

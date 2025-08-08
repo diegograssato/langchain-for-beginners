@@ -1,0 +1,84 @@
+A 2015 paper, “Neural Machine Translation by Jointly Learning to Align and Translate”,
+introduced a new approach to addressing this bottleneck. Rather than having
+the encoder supply a single thought vector, it preserved all the hidden state vectors
+generated for each token encountered in the encoding process and then allowed
+the decoder to “soft search” over all of the vectors. As a demonstration, the paper
+showed that using soft search with an English-to-French translation model increased
+translation quality significantly. This soft search technique soon came to be known as
+the attention mechanism.
+The attention mechanism soon gained a good deal of attention of its own in the
+AI community, culminating in the 2017 Google Research paper “Attention Is All
+You Need”, which introduced the transformer architecture shown in Figure 1-4. The
+transformer retained the high-level structure of its predecessor—consisting of an
+encoder that received tokens as input followed by a decoder that generated output
+tokens. But unlike the seq2seq model, all of the recurrent circuitry had been removed,
+and the transformer instead relies completely upon the attention mechanism. The
+resulting architecture was very flexible and much better at modeling training data
+than seq2seq. But whereas seq2seq could process arbitrarily long sequences, the
+transformer could process only a fixed, finite sequence of inputs and outputs. Since
+the transformer is the direct progenitor of the GPT models, this is a limitation that we
+have been pushing back against ever since.
+
+GPT Enters the Scene
+
+The generative pre-trained transformer architecture was introduced in the 2018
+paper “Improving Language Understanding by Generative Pre-Training”. The architecture
+wasn’t particularly special or new. Actually, the architecture was just a transformer
+with the encoder ripped off—it was just the decoder side. However, this
+simplification led to some unexpected new possibilities that would only be fully realized
+in coming years. It was this generative pre-trained transformer architecture—
+GPT—that would soon ignite the ongoing AI revolution.
+
+In 2018, this wasn’t apparent. At that point in time, it was standard practice to pretrain
+models with unlabeled data—for instance, scraps of text from the internet—and
+then modify the architecture of the models and apply specialized fine-tuning so that
+the final model would then be able to do one task very well. And so it was with the
+generative pre-trained transformer architecture. The 2018 paper simply showed that
+this pattern worked really well for GPTs—pre-training on unlabeled text followed by
+supervised fine-tuning for a particular task led to really good models for a variety of
+tasks such as classification, measuring similarities among documents, and answering
+multiple-choice questions. But we should emphasize one point: after the GPT was
+fine-tuned, it was only good at the single task for which it was fine-tuned.
+GPT-2 was simply a scaled-up version of GPT. When it was introduced in 2019, it
+was beginning to dawn upon researchers that the GPT architecture was something
+special. This is clearly evidenced in the second paragraph of the OpenAI blog post
+introducing GPT-2:
+
+Our model, called GPT-2 (a successor to GPT), was trained simply to predict the next
+word in 40 GB of Internet text. Due to our concerns about malicious applications of
+the technology, we are not releasing the trained model.
+Wow! How can those two sentences belong next to each other? How does something
+as innocuous as predicting the next word—just like an iPhone does when you write a
+text message—lead to such grave concerns about misuse? If you read the corresponding
+academic paper, “Language Models Are Unsupervised Multitask Learners”, then
+you start to find out. GPT-2 was 1.5 billion parameters, as compared with GPT’s 117
+million, and was trained on 40 GB of text, as compared with GPT’s 4.5 GB. A simple
+order-of-magnitude increase in model and training set size led to an unprecedented
+emergent quality—instead of having to fine-tune GPT-2 for a single task, you could
+apply the raw, pre-trained model to the task and often achieve better results than
+state-of-the-art models that were fine-tuned specifically for the task.
+
+Conclusion
+
+As we said at the start, this chapter sets the background for the journey you are about
+to take into prompt engineering. We started with a discussion of the recent history
+of language models, and we highlighted why LLMs are so special and different—and
+why they are fueling the AI revolution that we are all now witnessing. We then
+defined the topic of this book: prompt engineering.
+
+In particular, you should understand that this book isn’t going to be all about how to
+do nitpicky wording of a single prompt to get one good completion. Sure, we’ll cover
+that, and we’ll cover in detail all the things you need to do to generate high-quality
+completions that serve their intended purpose. But when we say, “prompt engineering,”
+we mean building the entire LLM-based application. The LLM application
+serves as a transformation layer, iteratively and statefully converting real-world needs
+into text that LLMs can address and then converting the data provided by the LLMs
+into information and action that address those real-world needs.
+
+Before we set off on this journey, let’s make sure we’re appropriately packed. In the
+next chapter, you’ll learn how LLM text completion works from the top-level API
+all the way down to low-level attention mechanisms. In the subsequent chapter, we’ll
+build upon that knowledge to explain how LLMs have been expanded to handle chat
+and tool usage, and you’ll see that deep down, it’s really all the same thing—text
+completion. Then, with those foundational ideas in store, you’ll be ready for your
+journey.
